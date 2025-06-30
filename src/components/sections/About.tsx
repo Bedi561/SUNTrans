@@ -1,14 +1,14 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
 export default function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -19,7 +19,7 @@ export default function About() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: { 
       opacity: 1, 
@@ -28,7 +28,7 @@ export default function About() {
     }
   };
 
-  const imageVariants = {
+  const imageVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: { 
       opacity: 1, 
@@ -68,7 +68,7 @@ export default function About() {
               style={{ color: '#B8B8B8' }}
               variants={itemVariants}
             >
- With over 25 years of transport excellence, Sun Transmovers is a trusted partner in corporate mobility. From electric cabs to deluxe buses, we deliver sustainable, tech-enabled transport solutions across Delhi NCR and Hyderabad.
+              With over 25 years of transport excellence, Sun Transmovers is a trusted partner in corporate mobility. From electric cabs to deluxe buses, we deliver sustainable, tech-enabled transport solutions across Delhi NCR and Hyderabad.
             </motion.p>
 
             <motion.div 
@@ -76,7 +76,7 @@ export default function About() {
               variants={imageVariants}
             >
               <motion.img
-src="/2.jpg"
+                src="/2.jpg"
                 alt="Professional chauffeur in suit standing beside luxury vehicle"
                 className="w-full h-80 object-cover shadow-xl"
                 whileHover={{ scale: 1.02 }}
@@ -96,8 +96,7 @@ src="/2.jpg"
               variants={imageVariants}
             >
               <motion.img
-src="/1.jpg"
-
+                src="/1.jpg"
                 alt="Luxury black sedan in front of modern building"
                 className="w-full h-96 lg:h-[500px] object-cover shadow-2xl"
                 whileHover={{ scale: 1.02 }}
@@ -121,7 +120,7 @@ src="/1.jpg"
                 style={{ color: '#B8B8B8' }}
                 variants={itemVariants}
               >
- Whether it’s daily corporate transit, educational institution support, or event transportation, our trained staff and real-time fleet monitoring ensure a seamless experience—powered by safety, efficiency, and innovation.
+                Whether it&apos;s daily corporate transit, educational institution support, or event transportation, our trained staff and real-time fleet monitoring ensure a seamless experience—powered by safety, efficiency, and innovation.
               </motion.p>
 
               <motion.div variants={itemVariants}>
@@ -135,12 +134,14 @@ src="/1.jpg"
                     backgroundColor: 'transparent'
                   }}
                   onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = '#9F96FF';
-                    e.target.style.color = '#FFFFFF';
+                    const target = e.target as HTMLButtonElement;
+                    target.style.backgroundColor = '#9F96FF';
+                    target.style.color = '#FFFFFF';
                   }}
                   onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = 'transparent';
-                    e.target.style.color = '#9F96FF';
+                    const target = e.target as HTMLButtonElement;
+                    target.style.backgroundColor = 'transparent';
+                    target.style.color = '#9F96FF';
                   }}
                 >
                   EXPLORE OUR SERVICES

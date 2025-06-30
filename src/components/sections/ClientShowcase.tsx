@@ -49,15 +49,15 @@ export default function ClientShowcase() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h2
-          className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-slate-200 to-white bg-clip-text text-transparent mb-6"
-          style={{ color: "#9F96FF" }}
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-        >
-          <h2>Trusted by India&apos;s Leading Corporates</h2>
+  className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-slate-200 to-white bg-clip-text text-transparent mb-6"
+  style={{ color: "#9F96FF" }}
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
+  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+>
+  Trusted by India&apos;s Leading Corporates
+</motion.h2>
 
-        </motion.h2>
         <motion.p
           className="text-slate-400 text-xl max-w-3xl mx-auto leading-relaxed"
           style={{ color: "#9F96FF" }}
@@ -65,7 +65,7 @@ export default function ClientShowcase() {
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
         >
-          <p>We serve enterprises, institutions, and government sectors with tailored transport solutions across Delhi NCR and Hyderabad.</p>
+          We serve enterprises, institutions, and government sectors with tailored transport solutions across Delhi NCR and Hyderabad.
 
         </motion.p>
       </motion.div>

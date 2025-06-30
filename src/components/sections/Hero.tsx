@@ -53,8 +53,8 @@ export default function Hero() {
               color: 'white',
               border: 'none'
             }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = '#9F96FF'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = '#9F96FF'}
+            onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#8B82FF'}
+            onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#9F96FF'}
           >
             Get a Free Quote
           </Button>

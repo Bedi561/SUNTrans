@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { Github, Twitter, Instagram, Linkedin, Car } from 'lucide-react';
+import { Instagram, Linkedin, Car } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
 export default function Footer() {
   const footerRef = useRef(null);
-  const isInView = useInView(footerRef, { threshold: 0.2, once: true });
+const isInView = useInView(footerRef, { amount: 0.2, once: true });
 
   return (
     <motion.footer

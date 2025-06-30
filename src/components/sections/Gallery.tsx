@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 
@@ -167,35 +167,35 @@ const FleetCardContent = ({ description }: { description: string }) => {
 
 const fleetData = [
   {
+    title: "Eco-Friendly Electric Sedans", // Added title
     category: "Electric Cabs",
     src: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     content: (
-      <FleetCardContent description=" 4 passengers  
-Eco-friendly AC sedans ideal for short daily commutes, airport transfers, or client movement. Designed for companies focused on sustainability and ESG goals." />
+      <FleetCardContent description="4 passengers - Eco-friendly AC sedans ideal for short daily commutes, airport transfers, or client movement. Designed for companies focused on sustainability and ESG goals." />
     ),
   },
   {
+    title: "Spacious Team Transport", // Added title
     category: "Tempo Travellers",
     src: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     content: (
-      <FleetCardContent description=" 12–17 passengers  
-Spacious and comfortable vans used widely for mid-size team transport, factory shifts, educational institution movement, and off-site coordination." />
+      <FleetCardContent description="12–17 passengers - Spacious and comfortable vans used widely for mid-size team transport, factory shifts, educational institution movement, and off-site coordination." />
     ),
   },
   {
+    title: "Premium Group Transport", // Added title
     category: "Deluxe Buses",
     src: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     content: (
-      <FleetCardContent description=" 35–50 passengers  
-Air-conditioned large-capacity buses with premium seating. Perfect for corporate events, regular staff shuttles, institutional tie-ups, and intercity group travel." />
+      <FleetCardContent description="35–50 passengers - Air-conditioned large-capacity buses with premium seating. Perfect for corporate events, regular staff shuttles, institutional tie-ups, and intercity group travel." />
     ),
   },
   {
+    title: "Sustainable Fleet Solutions", // Added title
     category: "CNG Vehicles",
     src: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     content: (
-      <FleetCardContent description=" 4–50 passengers  
-India’s largest CNG-powered fleet for sustainable and cost-efficient urban transport. Available across all vehicle categories from cabs to buses." />
+      <FleetCardContent description="4–50 passengers - India's largest CNG-powered fleet for sustainable and cost-efficient urban transport. Available across all vehicle categories from cabs to buses." />
     ),
   },
 ];
