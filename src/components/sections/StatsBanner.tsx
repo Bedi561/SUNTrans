@@ -6,7 +6,7 @@ function AnimatedCounter({ target, suffix = "", duration = 2000, index = 0 }) {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const elementRef = useRef(null);
-  const isInView = useInView(elementRef, { threshold: 0.5, once: true });
+  const isInView = useInView(elementRef, { amount: 0.5, once: true });
 
   useEffect(() => {
     if (isInView && !hasAnimated) {
@@ -64,7 +64,7 @@ const stats = [
 
 
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { threshold: 0.3, once: true });
+  const isInView = useInView(containerRef, { amount: 0.3, once: true });
 
   return (
     <section className="relative w-full py-16 overflow-hidden" style={{ backgroundColor: "#111827" }}>
