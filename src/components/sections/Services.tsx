@@ -26,7 +26,7 @@ export default function Services() {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
+      transition: { duration: 0.8, ease: "easeOut" as const }
     }
   };
 
@@ -36,28 +36,27 @@ export default function Services() {
       opacity: 1, 
       y: 0, 
       rotateX: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
+      transition: { duration: 0.8, ease: "easeOut" as const }
     }
   };
 
- const services = [
-  {
-    title: "Corporate Staff Transport",
-    description: "Reliable daily employee commute services with CNG and electric fleet options for enterprises across Delhi NCR and Hyderabad.",
-    image: "/1.jpg",
-  },
-  {
-    title: "Electric Vehicle Mobility",
-    description: "Eco-friendly mobility using 200+ electric cabs and buses. Track your rides in real time with our smart GPS platform.",
-    image: "/5.jpeg",
-  },
-  {
-    title: "Deluxe Bus & Tempo Fleet",
-    description: "300+ deluxe buses and 200+ tempo travellers for corporate events, educational institutions, and team movement.",
-    image: "/3.jpeg"
-  },
-];
-
+  const services = [
+    {
+      title: "Corporate Staff Transport",
+      description: "Reliable daily employee commute services with CNG and electric fleet options for enterprises across Delhi NCR and Hyderabad.",
+      image: "/1.jpg",
+    },
+    {
+      title: "Electric Vehicle Mobility",
+      description: "Eco-friendly mobility using 200+ electric cabs and buses. Track your rides in real time with our smart GPS platform.",
+      image: "/5.jpeg",
+    },
+    {
+      title: "Deluxe Bus & Tempo Fleet",
+      description: "300+ deluxe buses and 200+ tempo travellers for corporate events, educational institutions, and team movement.",
+      image: "/3.jpeg"
+    },
+  ];
 
   return (
     <section className="py-20 lg:py-24 px-12 w-full" ref={ref}>
@@ -89,7 +88,7 @@ export default function Services() {
             style={{ color: '#B8B8B8' }}
             variants={headerVariants}
           >
-From daily staff commute to electric fleet deployment and event logistics, Sun Transmovers ensures safe, sustainable, and tech-enabled transport across Delhi NCR & Hyderabad.
+            From daily staff commute to electric fleet deployment and event logistics, Sun Transmovers ensures safe, sustainable, and tech-enabled transport across Delhi NCR & Hyderabad.
           </motion.p>
         </motion.div>
 
@@ -106,7 +105,7 @@ From daily staff commute to electric fleet deployment and event logistics, Sun T
               whileHover={{ 
                 scale: 1.02, 
                 y: -8,
-                transition: { duration: 0.3, ease: "easeOut" }
+                transition: { duration: 0.3, ease: "easeOut" as const }
               }}
               whileTap={{ scale: 0.98 }}
               className="relative group cursor-pointer perspective-1000"
@@ -117,7 +116,7 @@ From daily staff commute to electric fleet deployment and event logistics, Sun T
                   alt={service.title}
                   className="w-full h-full object-cover"
                   whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  transition={{ duration: 0.6, ease: "easeOut" as const }}
                 />
                 
                 <motion.div 

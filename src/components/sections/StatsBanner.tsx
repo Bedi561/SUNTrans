@@ -1,8 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-function AnimatedCounter({ target, suffix = "", duration = 2000, index = 0 }) {
+interface AnimatedCounterProps {
+  target: number;
+  suffix?: string;
+  duration?: number;
+  index?: number;
+}
+
+function AnimatedCounter({ target, suffix = "", duration = 2000, index = 0 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const elementRef = useRef(null);
