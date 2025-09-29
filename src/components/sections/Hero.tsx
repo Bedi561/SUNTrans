@@ -2,89 +2,130 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
+
+const trustedTexts = [
+  "Itshift",
+  "Nietzsche",
+  "GlobalBank",
+  "CloudWatch"
+];
 
 export default function Hero() {
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
-      <motion.div
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
-        }}
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 8, ease: "easeOut" }}
-      >
-<div className="absolute inset-0" style={{ backgroundColor: 'rgba(17, 24, 39, 0.6)' }} />
-
-      </motion.div>
-
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <motion.h1 
-          className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight"
-          style={{ color: '#FFFFFF' }}
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-        >
-          Enabling Smarter Corporate Mobility
-        </motion.h1>
-                
-        <motion.h2 
-          className="text-xl md:text-2xl font-normal mb-10 max-w-2xl mx-auto leading-relaxed"
-          style={{ color: '#E0E0E0' }}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-        >
-          Electric, CNG & Deluxe Transport Solutions for Delhi NCR & Hyderabad.
-  Reliable. Sustainable. Always On-Time.
-        </motion.h2>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-        >
-          <Button 
-            className="px-12 py-6 text-xl font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-            style={{ 
-              backgroundColor: '#9F96FF', 
-              color: 'white',
-              border: 'none'
-            }}
-            onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#8B82FF'}
-            onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#9F96FF'}
+    <div className="relative min-h-screen w-full bg-[#fafafa] flex items-center px-6 lg:px-12 py-12">
+      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+        {/* Left Section */}
+        <div className="flex-1 flex flex-col space-y-3 mt-12">
+          <motion.h1
+            className="text-[#1f4b68] font-bold text-[48px] lg:text-[56px] leading-tight"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
           >
-            Get a Free Quote
-          </Button>
-        </motion.div>
-      </div>
+            KRUZE YOUR WAY
+          </motion.h1>
 
-      <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        style={{ color: '#E0E0E0' }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.4 }}
-      >
-        <div className="flex flex-col items-center space-y-2">
-          <motion.div 
-            className="w-px h-8"
-            style={{ backgroundColor: '#E0E0E0' }}
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
-            transition={{ duration: 0.8, delay: 1.6, ease: "easeOut" }}
-          />
-          <motion.div 
-            className="text-sm font-light tracking-wider"
-            animate={{ y: [0, -4, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+          <motion.p
+            className="text-[#495f7d] text-lg font-medium max-w-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.1 }}
           >
-            SCROLL
+            Travel smarter with airport transfers, corporate mobility, and on-demand rides in our premium fleet of electric and hybrid cars. Experience comfort, punctuality, and peace of mind every time you ride.
+          </motion.p>
+
+          {/* Ratings */}
+          <div className="flex items-center space-x-3">
+            <span className="text-yellow-400 text-xl">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span className="text-[#1f4b68] text-sm">
+              Trusted by 10,000+ Premium Riders in Delhi NCR
+            </span>
+          </div>
+
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="mb-8"
+          >
+            <Button className="bg-[#156082] text-white px-8 py-6 rounded-full font-semibold hover:bg-[#1f4b68] hover:scale-105 transition-transform mt-4 mb-10">
+              Download Now <span className="ml-1 ">&#8594;</span>
+            </Button>
+          </motion.div>
+
+          {/* Trusted By Text Loop */}
+          <div className="w-[480px] max-w-full flex flex-col items-start">
+            {/* Top row: Trusted By + line */}
+            <div className="flex items-center w-full mb-2 ">
+              <span className="text-[#050505] text-sm font-semibold tracking-wide mr-4 whitespace-nowrap">
+                Trusted By
+              </span>
+              <div className="flex-1 h-px bg-gray-300"></div> {/* horizontal line */}
+            </div>
+
+            {/* Marquee slider below */}
+            <div className="relative w-full overflow-hidden">
+              {/* Left gradient for blur effect */}
+              <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-[#fafafa] to-transparent pointer-events-none z-10" />
+              {/* Right gradient for blur effect */}
+              <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#fafafa] to-transparent pointer-events-none z-10" />
+
+              <Marquee
+                className="w-full text-[#1F4B68] text-sm font-bold tracking-wider ml-2"
+                gradient={false}
+                speed={32}
+                pauseOnHover={false}
+              >
+                {trustedTexts.map((text, idx) => (
+                  <span key={idx} className="mx-7 opacity-80">
+                    {text}
+                  </span>
+                ))}
+                {trustedTexts.map((text, idx) => (
+                  <span key={"repeat-" + idx} className="mx-7 opacity-80">
+                    {text}
+                  </span>
+                ))}
+              </Marquee>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Right Section - Custom Layout */}
+        <div className="flex w-[500px] lg:w-[600px] gap-3 mt-24">
+          {/* Left Column */}
+          <div className="flex flex-col gap-3 w-[230px]">
+            {/* Top Image Card */}
+            <motion.div
+              className="relative rounded-2xl overflow-hidden bg-[#156082] h-[280px]"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.22 }}
+            />
+            {/* Bottom Stats Card */}
+            <motion.div
+              className="bg-[#156082] rounded-2xl text-white px-6 py-8 flex flex-col justify-center items-start h-[180px] w-[180px] ml-auto"
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+            />
+          </div>
+
+          {/* Right Column - Person Card */}
+          <motion.div
+            className="relative rounded-2xl overflow-hidden bg-[#156082] flex-1 h-[330px] flex items-end mt-16"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.36 }}
+          >
+            <div className="absolute top-4 right-4 bg-[#156082] bg-opacity-90 text-white text-lg px-4 py-2 rounded-xl text-right" />
+            <div className="absolute bottom-4 left-4 bg-opacity-70 text-white text-base px-4 py-2 rounded-xl" />
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
