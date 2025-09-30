@@ -57,11 +57,11 @@ export default function Services() {
   };
 
   return (
-    <section className="bg-[#fafafa] py-20 rounded-[40px]" ref={ref}>
-      <div className="max-w-[1320px] mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 mb-14">
+    <section className="py-16 px-4 sm:py-20 sm:px-6" ref={ref}>
+      <div className="max-w-[1320px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8 mb-10 md:mb-14">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-[#1f4b68]"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1f4b68]"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.72, ease: "easeOut" }}
@@ -70,7 +70,7 @@ export default function Services() {
             Committed to <br /> keeping you safe
           </motion.h2>
           <motion.p
-            className="text-2xl text-[#156082] font-medium flex items-center"
+            className="text-xl sm:text-2xl text-[#156082] font-medium flex items-center"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
@@ -78,19 +78,20 @@ export default function Services() {
             We’ve created our service with safety in mind, down to every last detail
           </motion.p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {features.map((item, i) => (
             <motion.div
               key={item.title}
-              className="bg-white rounded-3xl border border-[#ede7fd] hover:shadow-lg shadow transition-all duration-300 p-8 flex flex-col items-center text-center min-h-[290px]"
+              className="bg-white rounded-3xl border border-[#ede7fd] hover:shadow-lg shadow transition-all duration-300 p-6 sm:p-8 flex flex-col items-center text-center min-h-[260px] sm:min-h-[290px]"
               custom={i}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={cardVariants}
             >
-              <div className="mb-5">{item.icon}</div>
-              <h3 className="text-xl font-extrabold text-[#1f4b68] mb-2">{item.title}</h3>
-              <p className="text-base text-[#156082] leading-relaxed">{item.description}</p>
+              <div className="mb-4 sm:mb-5">{item.icon}</div>
+              <h3 className="text-lg sm:text-xl font-extrabold text-[#1f4b68] mb-2">{item.title}</h3>
+              <p className="text-sm sm:text-base text-[#156082] leading-relaxed">{item.description}</p>
             </motion.div>
           ))}
         </div>

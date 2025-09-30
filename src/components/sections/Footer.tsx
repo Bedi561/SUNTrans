@@ -15,20 +15,20 @@ export default function Footer() {
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 flex flex-col md:flex-row justify-between items-start gap-10 md:gap-12">
         {/* Logo/Message */}
-        <div className="flex flex-col items-start space-y-4 min-w-[240px]">
-          <img src="wwe.png" alt="Kruze" className="h-24 mb-2" />
-          <p className="text-sm text-[#fafafa] leading-relaxed max-w-xs">
+        <div className="flex flex-col items-start space-y-3 md:space-y-4 min-w-[240px]">
+          <img src="wwe.png" alt="Kruze" className="h-16 sm:h-20 mb-1 md:mb-2" />
+          <p className="text-sm sm:text-base text-[#fafafa] leading-relaxed max-w-xs">
             Experience the difference of a ride that&apos;s big on care, comfort, and attention to every detail.
           </p>
         </div>
 
         {/* Sections */}
-        <div className="flex flex-row gap-16">
+        <div className="flex flex-row gap-8 sm:gap-12">
           <div>
-            <div className="font-medium mb-4 text-[#fafafa]">Sections</div>
-            <ul className="space-y-2 text-sm text-[#fafafa]">
+            <div className="font-medium mb-3 sm:mb-4 text-[#fafafa] text-sm sm:text-base">Sections</div>
+            <ul className="space-y-1 sm:space-y-2 text-sm sm:text-base text-[#fafafa]">
               <li>
                 <a href="#about" className="hover:underline transition">
                   About
@@ -47,8 +47,8 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <div className="font-medium mb-4 text-[#fafafa]">Socials</div>
-            <ul className="space-y-2 text-sm text-[#fafafa]">
+            <div className="font-medium mb-3 sm:mb-4 text-[#fafafa] text-sm sm:text-base">Socials</div>
+            <ul className="space-y-1 sm:space-y-2 text-sm sm:text-base text-[#fafafa]">
               <li>
                 <a
                   target="_blank"

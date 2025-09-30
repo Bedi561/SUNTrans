@@ -75,28 +75,28 @@ export default function WhatevaSection() {
 
   return (
     <section
-      className="py-24 bg-[#fafafa] rounded-[50px] w-full overflow-hidden"
+      className="py-20 px-4 sm:py-24 sm:px-6 bg-[#fafafa] rounded-[50px] w-full overflow-hidden"
       ref={ref}
     >
-      <div className=" flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto px-6">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-8 max-w-7xl mx-auto">
         {/* Left - Image */}
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
-          className="bg-[#e6f2f6] rounded-[40px] flex justify-center items-center p-8 ml-24"
+          className="bg-[#e6f2f6] rounded-[40px] flex justify-center items-center p-6 sm:p-8 w-full sm:w-[320px] md:w-[360px] lg:ml-24"
         >
           <motion.img
             src="nwo.png"
             alt="Mobile App Screenshot"
-            className="w-[280px] md:w-[320px] rounded-[32px] shadow-lg"
+            className="w-[260px] sm:w-[280px] md:w-[320px] rounded-[32px] shadow-md"
             variants={itemVariants}
           />
         </motion.div>
 
         {/* Right - Content */}
         <motion.div
-          className="flex-1 max-w-xl"
+          className="flex-1 max-w-full sm:max-w-xl"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
@@ -108,67 +108,59 @@ export default function WhatevaSection() {
             Why choose whateva
           </motion.div>
 
-          <ul className="space-y-8 mb-8">
-            <motion.li className="flex items-start gap-5" variants={itemVariants}>
+          <ul className="space-y-6 sm:space-y-8 mb-8">
+            <motion.li className="flex items-start gap-4 sm:gap-5" variants={itemVariants}>
               <IconShield />
               <div>
-                <h3 className="font-bold text-lg text-[#156082] mb-2">
+                <h3 className="font-bold text-lg text-[#156082] mb-1 sm:mb-2">
                   Your safety is our priority
                 </h3>
-                <p className="text-[#497a97] text-base">
+                <p className="text-[#497a97] text-sm sm:text-base">
                   With geolocated rides, verified drivers and a safety button available to take care of you during your ride.
                 </p>
               </div>
             </motion.li>
 
-            <motion.li className="flex items-start gap-5" variants={itemVariants}>
+            <motion.li className="flex items-start gap-4 sm:gap-5" variants={itemVariants}>
               <IconCheck />
               <div>
-                <h3 className="font-bold text-lg text-[#156082] mb-2">
+                <h3 className="font-bold text-lg text-[#156082] mb-1 sm:mb-2">
                   The highest quality standards
                 </h3>
-                <p className="text-[#497a97] text-base">
+                <p className="text-[#497a97] text-sm sm:text-base">
                   Professional drivers, modern vehicles and the ability to control your journey preferences via the app. At last, you’ll travel as you deserve to.
                 </p>
               </div>
             </motion.li>
 
-            <motion.li className="flex items-start gap-5" variants={itemVariants}>
+            <motion.li className="flex items-start gap-4 sm:gap-5" variants={itemVariants}>
               <IconTag />
               <div>
-                <h3 className="font-bold text-lg text-[#156082] mb-2">
+                <h3 className="font-bold text-lg text-[#156082] mb-1 sm:mb-2">
                   Clear and transparent prices
                 </h3>
-                <p className="text-[#497a97] text-base">
+                <p className="text-[#497a97] text-sm sm:text-base">
                   We always show you the price before you order the journey so that you can decide how best to get there. No surprises.
                 </p>
               </div>
             </motion.li>
           </ul>
 
-          <motion.div className="flex gap-4 mb-6" variants={itemVariants}>
+          <motion.div className="flex gap-3 sm:gap-4 mb-6" variants={itemVariants}>
             <a href="#" className="block">
               <img
-                src="/appstore-badge.png"
+                src="appstore-badge.png"
                 alt="Download on App Store"
-                className="h-10"
+                className="h-8 sm:h-10"
               />
             </a>
             <a href="#" className="block">
               <img
-                src="/googleplay-badge.png"
+                src="googleplay-badge.png"
                 alt="Get it on Google Play"
-                className="h-10"
+                className="h-8 sm:h-10"
               />
             </a>
-          </motion.div>
-
-          <motion.div
-            className="text-[#1f4b68] text-base font-semibold flex items-center gap-2"
-            variants={itemVariants}
-          >
-            Or discover our <a href="#" className="underline">web app</a>{" "}
-            <span>→</span>
           </motion.div>
         </motion.div>
       </div>

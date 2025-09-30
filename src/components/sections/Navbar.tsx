@@ -1,8 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-// import Link from "next/link";
-// import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
@@ -21,18 +19,20 @@ export default function Navbar() {
             <img src="w.png" alt="Kruze" className="h-28" />
           </motion.div>
 
-          {/* CTA Button */}
+          {/* CTA Button (Desktop only) */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="hidden md:block">
-             <Button className="bg-[#156082] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#1f4b68] hover:scale-105 transition-transform">
+            <Button className="bg-[#156082] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#1f4b68] hover:scale-105 transition-transform">
               Download Now <span className="ml-1">&#8594;</span>
             </Button>
           </motion.div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button (Mobile only) */}
           <motion.button
             className="md:hidden w-10 h-10 rounded-lg bg-[#156082]/20 flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.9 }}
+            aria-label="Toggle mobile menu"
+            aria-expanded={isMobileMenuOpen}
           >
             <div className="w-6 h-6 flex flex-col justify-center space-y-1">
               <motion.div
@@ -58,7 +58,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu can be styled similarly */}
+      {/* Mobile Menu panel can be inserted here, conditionally rendered when isMobileMenuOpen */}
     </motion.nav>
   );
 }
