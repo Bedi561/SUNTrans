@@ -1,264 +1,136 @@
-// "use client";
-
-// import { Button } from "@/components/ui/button";
-// import { motion } from "framer-motion";
-// import Marquee from "react-fast-marquee";
-
-// const trustedTexts = [
-//   "Itshift",
-//   "Nietzsche",
-//   "GlobalBank",
-//   "CloudWatch",
-// ];
-
-// export default function Hero() {
-//   return (
-//     <div className="relative min-h-screen w-full bg-[#fafafa] flex items-center px-4 sm:px-6 lg:px-12 py-12">
-//       <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-//         {/* Left Section */}
-//         <div className="flex-1 flex flex-col space-y-3 mt-6 sm:mt-12">
-//           <motion.h1
-//             className="text-[#1f4b68] font-bold text-[36px] sm:text-[48px] lg:text-[56px] leading-tight"
-//             initial={{ opacity: 0, y: 40 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 1 }}
-//           >
-//             KRUZE YOUR WAY
-//           </motion.h1>
-
-//           <motion.p
-//             className="text-[#495f7d] text-base sm:text-lg font-medium max-w-full sm:max-w-xl"
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 1, delay: 0.1 }}
-//           >
-//             Travel smarter with airport transfers, corporate mobility, and on-demand rides in our premium fleet of electric and hybrid cars. Experience comfort, punctuality, and peace of mind every time you ride.
-//           </motion.p>
-
-//           {/* Ratings */}
-//           <div className="flex items-center space-x-2 sm:space-x-3">
-//             <span className="text-yellow-400 text-lg sm:text-xl">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-//             <span className="text-[#1f4b68] text-xs sm:text-sm">
-//               Trusted by 10,000+ Premium Riders in Delhi NCR
-//             </span>
-//           </div>
-
-//           {/* CTA Button */}
-//           <motion.div
-//             initial={{ opacity: 0, y: 25 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 1, delay: 0.2 }}
-//             className="mb-8"
-//           >
-//             <Button className="bg-[#156082] text-white px-6 py-3 sm:px-8 sm:py-6 rounded-full font-semibold hover:bg-[#1f4b68] hover:scale-105 transition-transform mb-8">
-//               Download Now <span className="ml-1">&#8594;</span>
-//             </Button>
-//           </motion.div>
-
-//           {/* Trusted By Text Loop */}
-//           <div className="relative w-full max-w-[480px] flex flex-col items-start">
-//             {/* Top row: Trusted By + line */}
-//             <div className="flex items-center w-full mb-2">
-//               <span className="text-[#050505] text-xs sm:text-sm font-semibold tracking-wide mr-4 whitespace-nowrap">
-//                 Trusted By
-//               </span>
-//               <div className="flex-1 h-px bg-gray-300"></div> {/* horizontal line */}
-//             </div>
-
-//             {/* Marquee slider below */}
-//             <div className="relative w-full overflow-hidden">
-//               {/* Left gradient for blur effect */}
-//               <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-[#fafafa] to-transparent pointer-events-none z-10" />
-//               {/* Right gradient for blur effect */}
-//               <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#fafafa] to-transparent pointer-events-none z-10" />
-
-//               <Marquee
-//                 className="w-full text-[#1F4B68] text-xs sm:text-sm font-bold tracking-wider ml-2"
-//                 gradient={false}
-//                 speed={32}
-//                 pauseOnHover={false}
-//               >
-//                 {trustedTexts.map((text, idx) => (
-//                   <span key={idx} className="mx-4 sm:mx-7 opacity-80">
-//                     {text}
-//                   </span>
-//                 ))}
-//                 {trustedTexts.map((text, idx) => (
-//                   <span key={"repeat-" + idx} className="mx-4 sm:mx-7 opacity-80">
-//                     {text}
-//                   </span>
-//                 ))}
-//               </Marquee>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Right Section - Custom Layout */}
-//         <div className="flex w-full sm:w-[500px] lg:w-[600px] gap-3 mt-12 sm:mt-24">
-//           {/* Left Column */}
-//           <div className="flex flex-col gap-3 w-full sm:w-[230px]">
-//             {/* Top Image Card */}
-//             <motion.div
-//               className="relative rounded-2xl overflow-hidden bg-[#156082] h-[200px] sm:h-[280px]"
-//               initial={{ opacity: 0, x: 40 }}
-//               animate={{ opacity: 1, x: 0 }}
-//               transition={{ duration: 1, delay: 0.22 }}
-//             />
-//             {/* Bottom Stats Card */}
-//             <motion.div
-//               className="bg-[#156082] rounded-2xl text-white px-6 py-8 flex flex-col justify-center items-start h-[140px] sm:h-[180px] w-full sm:w-[180px] ml-auto"
-//               initial={{ opacity: 0, y: 25 }}
-//               animate={{ opacity: 1, y: 0 }}
-//               transition={{ duration: 1, delay: 0.3 }}
-//             />
-//           </div>
-
-//           {/* Right Column - Person Card */}
-//           <motion.div
-//             className="relative rounded-2xl overflow-hidden bg-[#156082] flex-1 h-[250px] sm:h-[330px] flex items-end mt-16"
-//             initial={{ opacity: 0, x: 20 }}
-//             animate={{ opacity: 1, x: 0 }}
-//             transition={{ duration: 1, delay: 0.36 }}
-//           >
-//             <div className="absolute top-4 right-4 bg-[#156082] bg-opacity-90 text-white text-lg px-4 py-2 rounded-xl text-right" />
-//             <div className="absolute bottom-4 left-4 bg-opacity-70 text-white text-base px-4 py-2 rounded-xl" />
-//           </motion.div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-
+// Top of Hero.tsx
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import Marquee from "react-fast-marquee";
+// import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion"; // keep named import only
+import StatsBanner from "./StatsBanner";
 
-const trustedTexts = [
-  "Itshift",
-  "Nietzsche",
-  "GlobalBank",
-  "CloudWatch",
+const navLinks = [
+  { label: "About", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Why Us", href: "/about" },
+  { label: "Our Fleet", href: "/portfolio" },
+  { label: "Clients", href: "/contacts" },
 ];
 
 export default function Hero() {
   return (
-<div className="relative min-h-screen w-full bg-[#fafafa] flex items-center px-4 sm:px-6 lg:px-12 py-12 mt-12 lg:mt-0">
+    <div className="relative min-h-screen w-full bg-background">
+      {/* NAVIGATION BAR */}
+    <nav className="absolute top-0 left-0 w-full z-30 px-12 py-6 bg-transparent flex items-center justify-between">
+  {/* Left: Logo */}
+  <div className="flex-shrink-0 ml-8">
+    <span className="font-bold text-3xl tracking-wider text-foreground ml-10 ">
+      SNTC
+    </span>
+  </div>
 
-      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
-        {/* Left Section */}
-        <div className="flex-1 flex flex-col space-y-4 mt-6 sm:mt-12 text-center lg:text-left">
-          <motion.h1
-            className="text-[#1f4b68] font-bold text-[32px] sm:text-[40px] lg:text-[56px] leading-tight"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            KRUZE YOUR WAY
-          </motion.h1>
+  {/* Center: Nav Links */}
+  <div className="flex-1 flex justify-center gap-16 ml-6">
+    {navLinks.map((link) => (
+      <a
+        key={link.label}
+        href={link.href}
+        className="relative font-bold text-base tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-200 group"
+      >
+        {link.label}
+        <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    ))}
+  </div>
 
-          <motion.p
-            className="text-[#495f7d] text-sm sm:text-lg font-medium max-w-full sm:max-w-xl mx-auto lg:mx-0"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.1 }}
-          >
-            Travel smarter with airport transfers, corporate mobility, and on-demand rides in our premium fleet of electric and hybrid cars. Experience comfort, punctuality, and peace of mind every time you ride.
-          </motion.p>
+  {/* Right: CTA Button */}
+  <div className="flex-shrink-0">
+    <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-md transition-colors duration-200">
+      GET A QUOTE
+    </button>
+  </div>
+</nav>
 
-          {/* Ratings */}
-          <div className="flex items-center justify-center lg:justify-start space-x-2 sm:space-x-3">
-            <span className="text-yellow-400 text-lg sm:text-xl">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span className="text-[#1f4b68] text-xs sm:text-sm">
-              Trusted by 10,000+ Premium Riders in Delhi NCR
-            </span>
+
+
+      {/* HERO SECTION */}
+      <div className="container mx-auto px-12 pt-32 pb-16">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-8 mb-8">
+          {/* Hero Text */}
+          <div className="flex-1 max-w-2xl">
+            <motion.h1
+  className="text-6xl lg:text-7xl font-bold mb-4 leading-tight tracking-tight uppercase"
+  style={{ color: "#284267" }}
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+>
+  Seamless Staff Mobility
+</motion.h1>
+
+            <motion.p
+              className="text-lg font-light text-muted-foreground tracking-wide"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+Reliable transport for your staff.
+            </motion.p>
           </div>
 
           {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="mb-6 sm:mb-8 flex justify-center lg:justify-start"
-          >
-            <Button className="bg-[#156082] text-white lg:mb-6 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold hover:bg-[#1f4b68] hover:scale-105 transition-transform">
-              Download Now <span className="ml-1">&#8594;</span>
-            </Button>
-          </motion.div>
-
-          {/* Trusted By Text Loop */}
-          <div className="relative w-full max-w-xs sm:max-w-md mx-auto lg:mx-0 sm:mt-12 flex flex-col items-center lg:items-start">
-            <div className="flex items-center w-full mb-2">
-              <span className="text-[#050505] text-xs sm:text-sm font-semibold tracking-wide mr-4 whitespace-nowrap">
-                Trusted By
-              </span>
-              <div className="flex-1 h-px bg-gray-300"></div>
-            </div>
-
-            <div className="relative w-full overflow-hidden">
-              <div className="absolute left-0 top-0 h-full w-10 sm:w-16 bg-gradient-to-r from-[#fafafa] to-transparent pointer-events-none z-10" />
-              <div className="absolute right-0 top-0 h-full w-10 sm:w-16 bg-gradient-to-l from-[#fafafa] to-transparent pointer-events-none z-10" />
-
-              <Marquee
-                className="w-full text-[#1F4B68] text-xs sm:text-sm font-bold tracking-wider"
-                gradient={false}
-                speed={32}
-                pauseOnHover={false}
-              >
-                {trustedTexts.map((text, idx) => (
-                  <span key={idx} className="mx-3 sm:mx-6 opacity-80">
-                    {text}
-                  </span>
-                ))}
-                {trustedTexts.map((text, idx) => (
-                  <span key={"repeat-" + idx} className="mx-3 sm:mx-6 opacity-80">
-                    {text}
-                  </span>
-                ))}
-              </Marquee>
-            </div>
-          </div>
+          
         </div>
 
-        {/* Right Section - Cards */}
-        <div className="flex w-full sm:w-[500px] lg:w-[600px] gap-3 mt-12 sm:mt-24">
- {/* Left Column */}
-           <div className="flex flex-col gap-3 w-full sm:w-[230px]">
-             {/* Top Image Card */}
-             <motion.div
-               className="relative rounded-2xl overflow-hidden bg-[#156082] h-[200px] sm:h-[280px]"
-               initial={{ opacity: 0, x: 40 }}
-               animate={{ opacity: 1, x: 0 }}
-               transition={{ duration: 1, delay: 0.22 }}
-             />
-             {/* Bottom Stats Card */}
-             <motion.div
-               className="bg-[#156082] rounded-2xl text-white px-6 py-8 flex flex-col justify-center items-start h-[140px] sm:h-[180px] w-full sm:w-[180px] ml-auto"
-               initial={{ opacity: 0, y: 25 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 1, delay: 0.3 }}
-             />
-           </div>
+        {/* Hero Image Card */}
+        <motion.div
+          className="relative w-full h-[500px] rounded-3xl overflow-hidden group"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
+          <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+          </div>
 
-           {/* Right Column - Person Card */}
-           <motion.div
-             className="relative rounded-2xl overflow-hidden bg-[#156082] flex-1 h-[250px] sm:h-[330px] flex items-end mt-16"
-             initial={{ opacity: 0, x: 20 }}
-             animate={{ opacity: 1, x: 0 }}
-             transition={{ duration: 1, delay: 0.36 }}
-           >
-             <div className="absolute top-4 right-4 bg-[#156082] bg-opacity-90 text-white text-lg px-4 py-2 rounded-xl text-right" />
-             <div className="absolute bottom-4 left-4 bg-opacity-70 text-white text-base px-4 py-2 rounded-xl" />
-           </motion.div>
-         </div>
-</div>
+
+          {/* Bottom Content */}
+          <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
+            <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
+              {/* Text Content */}
+              <div>
+                <h3 className="text-2xl font-semibold text-white mb-2">
+                  Enabling Smarter Corporate Mobility
+                </h3>
+                <p className="text-sm text-white/80 font-light tracking-wide">
+                  Electric, CNG & Deluxe Transport Solutions for Delhi NCR & Hyderabad.
+                </p>
+              </div>
+
+              {/* Arrow Icon */}
+              <div className="shrink-0">
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
+                  <svg
+                    className="w-5 h-5 text-foreground"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+            <StatsBanner />
+      </div>
     </div>
   );
 }

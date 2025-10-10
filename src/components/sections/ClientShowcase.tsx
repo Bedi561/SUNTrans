@@ -1,125 +1,171 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, useInView, Variants } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
 
-const faqs = [
-  {
-    question: "What areas do you operate in?",
-    answer:
-      "We currently serve Delhi NCR and Hyderabad with premium corporate, airport, and on-demand mobility solutions.",
-  },
-  {
-    question: "Can I schedule my ride in advance?",
-    answer:
-      "Yes. You can schedule rides ahead of time using our mobile app or web platform to suit your itinerary.",
-  },
-  {
-    question: "Are your drivers trained and vetted?",
-    answer:
-      "All KRUZE drivers are professionally trained, background-checked, and routinely evaluated for service standards.",
-  },
-  {
-    question: "How does KRUZE ensure safety?",
-    answer:
-      "We use journey tracking, safety buttons for emergency alerts, and rigorous vehicle cleanliness standards for your protection.",
-  },
-  {
-    question: "How can I contact KRUZE for support?",
-    answer:
-      "Reach out via chat in the app or contact our 24x7 customer support hotline for assistance.",
-  },
+const companies = [
+  "TCS", "HCLTech", "Capgemini", "Samsung", "Barclays", "AsianPaints",
+  "Optum", "GlobalLogic", "Mercer", "Oppo", "IndiaMART",
+  "BureauVeritas", "MothersonSumi", "Mphasis", "Oracle",
 ];
 
-export default function FAQSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.25 });
-  const [open, setOpen] = useState<number | null>(null);
+export default function ClientShowcase() {
+  const [isVisible, setIsVisible] = useState(false);
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { staggerChildren: 0.11, delayChildren: 0.2 },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 32 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   return (
-    <section
-      className="max-w-3xl mx-auto py-24 px-6 bg-[#fafafa] rounded-3xl"
-      ref={ref}
+    <div
+      className="relative w-full overflow-hidden py-32"
+      style={{ backgroundColor: "#FFFFFF" }}
     >
+      {/* Animated Background Pattern */}
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        className="mb-14 text-center"
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at 50% 50%, rgba(40, 66, 103, 0.03), transparent 70%)",
+        }}
+        animate={{
+          background: [
+            "radial-gradient(circle at 50% 50%, rgba(40, 66, 103, 0.03), transparent 70%)",
+            "radial-gradient(circle at 30% 70%, rgba(40, 66, 103, 0.05), transparent 70%)",
+            "radial-gradient(circle at 70% 30%, rgba(40, 66, 103, 0.04), transparent 70%)",
+            "radial-gradient(circle at 50% 50%, rgba(40, 66, 103, 0.03), transparent 70%)",
+          ],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      {/* Premium Gradient Fades */}
+      <div
+        className="pointer-events-none absolute left-0 top-0 z-20 h-full w-48"
+        style={{
+          background:
+            "linear-gradient(to right, #FFFFFF, rgba(255, 255, 255, 0.9), transparent)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute right-0 top-0 z-20 h-full w-48"
+        style={{
+          background:
+            "linear-gradient(to left, #FFFFFF, rgba(255, 255, 255, 0.9), transparent)",
+        }}
+      />
+
+      {/* Section Header */}
+      <motion.div
+        className="text-center mb-24 px-8"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 40 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <motion.div
-          variants={itemVariants}
-          className="mb-2 text-[#156082] text-sm font-semibold tracking-wide"
-        >
-          FAQ
-        </motion.div>
         <motion.h2
-          variants={itemVariants}
-          className="font-extrabold text-4xl md:text-5xl mb-6 tracking-tight text-[#1f4b68]"
+          className="text-5xl lg:text-6xl font-bold mb-6"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          Everything you need to know
+          <span style={{ color: "#284267" }}>Trusted by India&apos;s Leading </span>
+          <span style={{ color: "#EB8844" }}>Corporates</span>
         </motion.h2>
+
+        <motion.p
+          className="text-xl max-w-3xl mx-auto leading-relaxed"
+          style={{ color: "#284267" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+        >
+          We serve enterprises, institutions, and government sectors with tailored
+          transport solutions across Delhi NCR and Hyderabad.
+        </motion.p>
       </motion.div>
-      <div>
-        {faqs.map((faq, idx) => {
-          const isOpen = open === idx;
-          return (
-            <motion.div
-              key={idx}
-              variants={itemVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="border-b border-[#d0dde4] last:border-b-0"
-            >
-              <button
-className="w-full flex items-center justify-between py-7 px-4 text-lg font-medium text-[#1f4b68] focus:outline-none transition-colors duration-300 hover:bg-[#eaf2f7]"
-                onClick={() => setOpen(isOpen ? null : idx)}
-                aria-expanded={isOpen}
-                aria-controls={`faq-item-${idx}`}
-              >
-                <span>{faq.question}</span>
-                <span
-                  className={`inline-block w-7 h-7 rounded-full bg-[#156082] text-white text-xl flex items-center justify-center transition-transform duration-300 ${
-                    isOpen ? "rotate-45" : ""
-                  }`}
-                >
-                  +
-                </span>
-              </button>
-              <motion.div
-                id={`faq-item-${idx}`}
-                initial={{ height: 0, opacity: 0, scale: 0.95 }}
-                animate={
-                  isOpen
-                    ? { height: "auto", opacity: 1, scale: 1, transition: { duration: 0.35, ease: "easeOut" } }
-                    : { height: 0, opacity: 0, scale: 0.95, transition: { duration: 0.35, ease: "easeIn" } }
-                }
-                className="overflow-hidden text-[#495f7d] px-2 pb-0 text-base"
-              >
-                {faq.answer}
-              </motion.div>
+
+      {/* First Row (Left to Right) */}
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -100 }}
+        transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+      >
+        <Marquee speed={40} gradient={false} pauseOnHover={false} className="mb-16">
+          {companies.map((name, idx) => (
+            <motion.div key={`row1-${idx}`} className="mx-10 flex items-center">
+              <img
+                src={`/${name}.png`}
+                alt={name}
+                className="h-24 w-auto object-contain"
+              />
             </motion.div>
-          );
-        })}
-      </div>
-    </section>
+          ))}
+        </Marquee>
+      </motion.div>
+
+      {/* Second Row (Right to Left) */}
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 100 }}
+        transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+      >
+        <Marquee
+          speed={35}
+          gradient={false}
+          pauseOnHover={false}
+          direction="right"
+          className="mt-16"
+        >
+          {companies.map((name, idx) => (
+            <motion.div key={`row2-${idx}`} className="mx-10 flex items-center">
+              <img
+                src={`/${name}.png`}
+                alt={name}
+                className="h-24 w-auto object-contain"
+              />
+            </motion.div>
+          ))}
+        </Marquee>
+      </motion.div>
+
+      {/* Bottom Glow Effect */}
+      <motion.div
+        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-32 rounded-full blur-3xl"
+        style={{
+          backgroundColor: "rgba(40, 66, 103, 0.1)",
+        }}
+        animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Floating Particles */}
+      {[...Array(3)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 rounded-full"
+          style={{
+            left: `${20 + i * 30}%`,
+            top: `${30 + i * 20}%`,
+            backgroundColor: "rgba(40, 66, 103, 0.2)",
+          }}
+          animate={{
+            y: [0, -20, 0],
+            opacity: [0.2, 0.6, 0.2],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 3 + i,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: i * 0.8,
+          }}
+        />
+      ))}
+    </div>
   );
 }
