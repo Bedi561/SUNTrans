@@ -5,9 +5,21 @@ import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 
 const companies = [
-  "TCS", "HCLTech", "Capgemini", "Samsung", "Barclays", "AsianPaints",
-  "Optum", "GlobalLogic", "Mercer", "Oppo", "IndiaMART",
-  "BureauVeritas", "MothersonSumi", "Mphasis", "Oracle",
+  "TCS",
+  "HCLTech",
+  "Capgemini",
+  "Samsung",
+  "Barclays",
+  "AsianPaints",
+  "Optum",
+  "GlobalLogic",
+  "Mercer",
+  "Oppo",
+  "IndiaMART",
+  "BureauVeritas",
+  "MothersonSumi",
+  "Mphasis",
+  "Oracle",
 ];
 
 export default function ClientShowcase() {
@@ -19,10 +31,10 @@ export default function ClientShowcase() {
 
   return (
     <div
-      className="relative w-full overflow-hidden py-32"
+      className="relative w-full overflow-hidden py-28"
       style={{ backgroundColor: "#FFFFFF" }}
     >
-      {/* Animated Background Pattern */}
+      {/* Animated Subtle Background */}
       <motion.div
         className="absolute inset-0"
         style={{
@@ -44,25 +56,25 @@ export default function ClientShowcase() {
         }}
       />
 
-      {/* Premium Gradient Fades */}
+      {/* Gradient Fades Left & Right */}
       <div
         className="pointer-events-none absolute left-0 top-0 z-20 h-full w-48"
         style={{
           background:
-            "linear-gradient(to right, #FFFFFF, rgba(255, 255, 255, 0.9), transparent)",
+            "linear-gradient(to right, #FFFFFF, rgba(255,255,255,0.9), transparent)",
         }}
       />
       <div
         className="pointer-events-none absolute right-0 top-0 z-20 h-full w-48"
         style={{
           background:
-            "linear-gradient(to left, #FFFFFF, rgba(255, 255, 255, 0.9), transparent)",
+            "linear-gradient(to left, #FFFFFF, rgba(255,255,255,0.9), transparent)",
         }}
       />
 
-      {/* Section Header */}
+      {/* Header */}
       <motion.div
-        className="text-center mb-24 px-8"
+        className="text-center mb-20 px-8"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 40 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -84,31 +96,31 @@ export default function ClientShowcase() {
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
         >
-          We serve enterprises, institutions, and government sectors with tailored
-          transport solutions across Delhi NCR and Hyderabad.
+          We serve enterprises, institutions, and government sectors with
+          tailored transport solutions across Delhi NCR and Hyderabad.
         </motion.p>
       </motion.div>
 
-      {/* First Row (Left to Right) */}
+      {/* First Row (Left → Right) */}
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -100 }}
         transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
       >
-        <Marquee speed={40} gradient={false} pauseOnHover={false} className="mb-16">
+        <Marquee speed={40} gradient={false} pauseOnHover={false} className="mb-12">
           {companies.map((name, idx) => (
-            <motion.div key={`row1-${idx}`} className="mx-10 flex items-center">
+            <motion.div key={`row1-${idx}`} className="mx-12 flex items-center">
               <img
                 src={`/${name}.png`}
                 alt={name}
-                className="h-24 w-auto object-contain"
+                className="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
               />
             </motion.div>
           ))}
         </Marquee>
       </motion.div>
 
-      {/* Second Row (Right to Left) */}
+      {/* Second Row (Right → Left) */}
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 100 }}
@@ -119,21 +131,24 @@ export default function ClientShowcase() {
           gradient={false}
           pauseOnHover={false}
           direction="right"
-          className="mt-16"
+          className="mt-12"
         >
-          {companies.map((name, idx) => (
-            <motion.div key={`row2-${idx}`} className="mx-10 flex items-center">
-              <img
-                src={`/${name}.png`}
-                alt={name}
-                className="h-24 w-auto object-contain"
-              />
-            </motion.div>
-          ))}
+          {companies
+            .slice()
+            .reverse() // 👈 reverse order for visual variety
+            .map((name, idx) => (
+              <motion.div key={`row2-${idx}`} className="mx-12 flex items-center">
+                <img
+                  src={`/${name}.png`}
+                  alt={name}
+                  className="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-200"
+                />
+              </motion.div>
+            ))}
         </Marquee>
       </motion.div>
 
-      {/* Bottom Glow Effect */}
+      {/* Bottom Glow */}
       <motion.div
         className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-32 rounded-full blur-3xl"
         style={{
@@ -142,30 +157,6 @@ export default function ClientShowcase() {
         animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
-
-      {/* Floating Particles */}
-      {[...Array(3)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 rounded-full"
-          style={{
-            left: `${20 + i * 30}%`,
-            top: `${30 + i * 20}%`,
-            backgroundColor: "rgba(40, 66, 103, 0.2)",
-          }}
-          animate={{
-            y: [0, -20, 0],
-            opacity: [0.2, 0.6, 0.2],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 3 + i,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: i * 0.8,
-          }}
-        />
-      ))}
     </div>
   );
 }

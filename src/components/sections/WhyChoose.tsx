@@ -1,108 +1,116 @@
-/* eslint-disable react/jsx-key */
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-// icons (same as yours)
-const icons = [
-  <svg width="26" height="26" fill="none" stroke="currentColor"><circle cx="13" cy="13" r="11" strokeWidth="2"/></svg>,
-  <svg width="26" height="26" fill="none" stroke="currentColor"><circle cx="13" cy="13" r="11" strokeWidth="2"/><path d="M13 7v6h5" strokeWidth="2"/></svg>,
-  <svg width="26" height="26" fill="none" stroke="currentColor"><rect x="5" y="10" width="16" height="10" rx="2" strokeWidth="2"/><path d="M5 14h16" strokeWidth="2"/></svg>,
-];
-
-export default function WhyChooseExactGrid() {
+export default function WhyChooseCompatto() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.25 });
+  const inView = useInView(ref, { once: true, amount: 0.2 });
 
   const fadeIn = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   return (
-    <section ref={ref} className="w-full mb-24 py-12 px-2 md:px-12 bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 rounded-lg overflow-hidden shadow-lg min-h-[360px]">
+    <section
+      ref={ref}
+      className="w-full py-20 px-6 md:px-12 bg-[#F9FAFB] flex flex-col items-center"
+    >
+      {/* Heading */}
+      <motion.h2
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={fadeIn}
+        className="text-4xl md:text-5xl font-bold mb-14 text-center text-[#284267] leading-tight"
+      >
+        Why <span className="text-[#EB8844]">Choose</span> Compatto
+      </motion.h2>
 
-        {/* LEFT TOP (col 1..3, row 1) */}
-        <motion.div
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={fadeIn}
-          className="col-span-1 md:col-start-1 md:col-span-3 md:row-start-1 h-full flex flex-col gap-3 justify-center items-center p-6"
-          style={{ backgroundColor: "#284267", color: "#E9DBB6" }} // deep blue bg with warm beige text
-        >
-          {icons[0]}
-          <div className="font-bold text-lg uppercase tracking-wider">SAMPLE HEADLINE</div>
-          <div className="text-sm opacity-90">Sample text. Click to select the text box.</div>
-        </motion.div>
+      {/* Main Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-6xl w-full">
+        {/* LEFT COLUMN (3 cols) */}
+        <div className="col-span-1 md:col-span-3 flex flex-col gap-8">
+          {/* Top row - two boxes */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {/* Box 1 */}
+            <motion.div
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              variants={fadeIn}
+              className="rounded-2xl p-7 bg-white shadow-md border border-[#284267]/10 hover:shadow-lg transition-all h-full"
+            >
+              <h3 className="text-lg font-semibold text-[#284267] mb-3">
+                End-to-End Solutions
+              </h3>
+              <p className="text-[15px] text-gray-600 leading-relaxed">
+                From concept to completion, we manage every stage of your furnishing project — ensuring flawless delivery and peace of mind.
+              </p>
+            </motion.div>
 
-        {/* LEFT BOTTOM (col 1..3, row 2) */}
-        <motion.div
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={fadeIn}
-          className="col-span-1 md:col-start-1 md:col-span-3 md:row-start-2 h-full flex flex-col gap-3 justify-center items-center p-6"
-          style={{ backgroundColor: "#E9DBB6", color: "#284267" }} // warm beige bg with deep blue text
-        >
-          {icons[1]}
-          <div className="font-bold text-lg uppercase tracking-wider">SAMPLE HEADLINE</div>
-          <div className="text-sm opacity-90">Sample text. Click to select the text box.</div>
-        </motion.div>
+            {/* Box 2 */}
+            <motion.div
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              variants={fadeIn}
+              className="rounded-2xl p-7 shadow-md bg-gradient-to-br from-[#284267] to-[#1e3350] text-white hover:scale-[1.02] transition-transform h-full"
+            >
+              <h3 className="text-lg font-semibold mb-3">After-Sales Support</h3>
+              <p className="text-[15px] opacity-90 leading-relaxed">
+                Our dedicated support team ensures lasting satisfaction — providing assistance, maintenance, and service whenever you need it.
+              </p>
+            </motion.div>
+          </div>
 
-        {/* CENTER IMAGE (col 4..9, row 1-2) */}
-        <div className="col-span-1 md:col-start-4 md:col-span-6 md:row-start-1 md:row-span-2 flex items-center justify-center bg-[#F9F8F6]">
-          {/* slightly off-white background for subtle contrast */}
-          <img
-            src="1.jpg"
-            alt="center"
-            className="object-contain max-w-full max-h-[100%] rounded"
-          />
-        </div>
-
-        {/* RIGHT TOP (col 10..12, row 1) */}
-        <motion.div
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={fadeIn}
-          className="col-span-1 md:col-start-10 md:col-span-3 md:row-start-1 h-full flex flex-col justify-center p-8"
-          style={{ backgroundColor: "#E9DBB6", color: "#284267" }} // warm beige bg with deep blue text
-        >
-          <h2 className="text-4xl font-bold leading-tight mb-2" style={{ color: "#284267" }}>
-            WHY <br />
-            <span className="text-black">CHOOSE US?</span>
-          </h2>
-          <p className="mt-2 font-medium" style={{ color: "#EB8844" }}>
-            Everyday we work hard to make life of our clients better and happier.
-          </p>
-        </motion.div>
-
-        {/* RIGHT BOTTOM (col 10..12, row 2) -> nested 2 cols */}
-        <div className="col-span-1 md:col-start-10 md:col-span-3 md:row-start-2 grid grid-cols-2 gap-0 h-full">
+          {/* Bottom wide box */}
           <motion.div
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             variants={fadeIn}
-            className="flex flex-col gap-2 justify-center items-center p-6 h-full"
-            style={{ backgroundColor: "#284267", color: "#E9DBB6" }}
+            className="rounded-2xl overflow-hidden shadow-lg bg-white border border-[#284267]/10"
           >
-            {icons[2]}
-            <div className="font-bold text-lg uppercase tracking-wider">SAMPLE HEADLINE</div>
-            <div className="text-sm opacity-90">Sample text. Click to select the text box.</div>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            variants={fadeIn}
-            className="flex flex-col gap-2 justify-center items-center p-6 h-full"
-            style={{ backgroundColor: "#EB8844", color: "#E9DBB6" }}
-          >
-            {icons[0]}
-            <div className="font-bold text-lg uppercase tracking-wider">SAMPLE HEADLINE</div>
-            <div className="text-sm opacity-90">Sample text. Click to select the text box.</div>
+            <img
+              src="/1.jpg"
+              alt="Superior Quality"
+              className="w-full object-cover h-[210px]" // refined height for balance
+            />
+            <div className="p-7 bg-[#EB8844] text-white">
+              <h3 className="text-lg font-semibold mb-2">Superior Quality</h3>
+              <p className="text-[15px] opacity-95 leading-relaxed">
+                We source only from the best — combining premium materials and craftsmanship to deliver lasting quality you can trust.
+              </p>
+            </div>
           </motion.div>
         </div>
 
+        {/* RIGHT COLUMN (2 cols) */}
+        <motion.div
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={fadeIn}
+          className="col-span-1 md:col-span-2 rounded-2xl p-9 flex flex-col justify-center text-white relative overflow-hidden min-h-[460px]"
+          style={{
+            background: "linear-gradient(145deg, #284267 0%, #1b304d 80%)",
+          }}
+        >
+          {/* Subtle accent glow */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#EB8844]/25 rounded-full blur-3xl opacity-70"></div>
+
+          <div className="mb-10 relative z-10">
+            <h3 className="text-xl font-semibold mb-3">No Variety Restrictions</h3>
+            <p className="text-[15px] leading-relaxed opacity-95">
+              Choose from any trusted vendor that meets our quality standards — enjoy flexibility without compromising craftsmanship.
+            </p>
+          </div>
+
+          <div className="relative z-10">
+            <h3 className="text-xl font-semibold mb-3 text-[#EB8844]">
+              Bespoke Furniture
+            </h3>
+            <p className="text-[15px] opacity-95 leading-relaxed">
+              Crafted exclusively to your vision — every piece tailored to your space, taste, and individuality.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
