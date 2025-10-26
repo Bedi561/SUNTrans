@@ -2,7 +2,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-export default function WhyChooseCompatto() {
+export default function WhyChooseSunTrans() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
 
@@ -23,7 +23,7 @@ export default function WhyChooseCompatto() {
         variants={fadeIn}
         className="text-4xl md:text-5xl font-bold mb-14 text-center text-[#284267] leading-tight"
       >
-        Why <span className="text-[#EB8844]">Choose</span> Compatto
+        Why <span className="text-[#EB8844]">Choose</span> SunTransmovers
       </motion.h2>
 
       {/* Main Grid */}
@@ -40,10 +40,12 @@ export default function WhyChooseCompatto() {
               className="rounded-2xl p-7 bg-white shadow-md border border-[#284267]/10 hover:shadow-lg transition-all h-full"
             >
               <h3 className="text-lg font-semibold text-[#284267] mb-3">
-                End-to-End Solutions
+                Complete Corporate Mobility
               </h3>
               <p className="text-[15px] text-gray-600 leading-relaxed">
-                From concept to completion, we manage every stage of your furnishing project — ensuring flawless delivery and peace of mind.
+                From daily staff transportation and airport transfers to luxury
+                bus charters and executive cab services we provide end-to-end
+                travel solutions tailored for corporates.
               </p>
             </motion.div>
 
@@ -54,9 +56,11 @@ export default function WhyChooseCompatto() {
               variants={fadeIn}
               className="rounded-2xl p-7 shadow-md bg-gradient-to-br from-[#284267] to-[#1e3350] text-white hover:scale-[1.02] transition-transform h-full"
             >
-              <h3 className="text-lg font-semibold mb-3">After-Sales Support</h3>
+              <h3 className="text-lg font-semibold mb-3">Reliable 24×7 Support</h3>
               <p className="text-[15px] opacity-90 leading-relaxed">
-                Our dedicated support team ensures lasting satisfaction — providing assistance, maintenance, and service whenever you need it.
+                Our professional operations team monitors every route and
+                responds instantly to changes ensuring seamless journeys and
+                round-the-clock assistance.
               </p>
             </motion.div>
           </div>
@@ -70,13 +74,16 @@ export default function WhyChooseCompatto() {
           >
             <img
               src="/1.jpg"
-              alt="Superior Quality"
-              className="w-full object-cover h-[210px]" // refined height for balance
+              alt="Premium Fleet"
+              className="w-full object-cover h-[210px]"
             />
             <div className="p-7 bg-[#EB8844] text-white">
-              <h3 className="text-lg font-semibold mb-2">Superior Quality</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                Premium Fleet & Safety First
+              </h3>
               <p className="text-[15px] opacity-95 leading-relaxed">
-                We source only from the best — combining premium materials and craftsmanship to deliver lasting quality you can trust.
+                Our modern fleet of luxury buses, tempo travellers, and cabs are
+                equipped with GPS tracking, AC comfort, and trained chauffeurs ensuring every ride is safe, punctual, and comfortable.
               </p>
             </div>
           </motion.div>
@@ -96,18 +103,24 @@ export default function WhyChooseCompatto() {
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#EB8844]/25 rounded-full blur-3xl opacity-70"></div>
 
           <div className="mb-10 relative z-10">
-            <h3 className="text-xl font-semibold mb-3">No Variety Restrictions</h3>
+            <h3 className="text-xl font-semibold mb-3">
+              Flexible Transport Solutions
+            </h3>
             <p className="text-[15px] leading-relaxed opacity-95">
-              Choose from any trusted vendor that meets our quality standards — enjoy flexibility without compromising craftsmanship.
+              Whether you need dedicated office shuttles, short-term rentals, or
+              inter-city travel plans we adapt our services to match your
+              company’s schedule, scale, and standards.
             </p>
           </div>
 
           <div className="relative z-10">
             <h3 className="text-xl font-semibold mb-3 text-[#EB8844]">
-              Bespoke Furniture
+              Trusted by Leading Enterprises
             </h3>
             <p className="text-[15px] opacity-95 leading-relaxed">
-              Crafted exclusively to your vision — every piece tailored to your space, taste, and individuality.
+              With decades of experience serving top corporates across Delhi-NCR
+              and beyond, Sun Trans Movers is synonymous with reliability,
+              professionalism, and on-time service every single day.
             </p>
           </div>
         </motion.div>

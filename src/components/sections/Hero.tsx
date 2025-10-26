@@ -4,10 +4,11 @@ import { motion } from "framer-motion"; // keep named import only
 import StatsBanner from "./StatsBanner";
 
 const navLinks = [
-  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Contact", href: "/contact" },
+    { label: "Why Us", href: "/Why us" },
+  { label: "Our Fleet", href: "/contact" },
+    { label: "Clients", href: "/clients" },
 ];
 
 export default function Hero() {

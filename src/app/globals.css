@@ -4,6 +4,10 @@
 @tailwind utilities;
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* Enable smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
 
 @layer base {
   :root {
@@ -146,7 +150,3 @@
   animation-play-state: paused;
 }
 
-/* Enable smooth scroll for anchor links */
-html {
-  scroll-behavior: smooth;
-}
